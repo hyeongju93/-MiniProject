@@ -93,12 +93,10 @@ public class PhoneApp {
 			default:
 				System.out.println("다시 입력해주세요");
 				break;
-				
-			}
+			}		
 			
-								
 		}	
-
+		
 		sc.close();
 		sc2.close();
 	}
