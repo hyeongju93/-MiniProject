@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 /*
  문제점 
- 버퍼가 비워지지 않아서 여러번 돌릴시 입력도 안했는데 입력이 돼있는 상태가 되어 무한루프에 빠짐
+ 1. 버퍼가 비워지지 않아서 여러번 돌릴시 입력도 안했는데 입력이 돼있는 상태가 되어 무한루프에 빠짐
  
+ 2. 제네렉을 이용해서 만들어 보자(지금 내가 사용하는 것은 static)
  */
 public class PhoneApp {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
 		System.out.println("****************************************");
 		System.out.println("*********    전화번호 관리 프로그램    *********");
@@ -46,11 +47,11 @@ public class PhoneApp {
 			try
 			{
 				num=sc.nextInt();
+				sc.nextLine();
 			}
 			catch(Exception e)
 			{
 				System.out.println("숫자를 입력하세요");
-				System.in.read();
 				continue;
 			}
 			System.out.println("");
@@ -95,7 +96,11 @@ public class PhoneApp {
 				break;
 			}		
 			
-		}	
+		}
+		PhoneData.save(list);
+			
+			
+		
 		
 		sc.close();
 		sc2.close();

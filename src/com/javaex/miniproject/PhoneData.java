@@ -1,10 +1,12 @@
 package com.javaex.miniproject;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.List;
 
 public class PhoneData {
@@ -53,6 +55,18 @@ public class PhoneData {
 				}
 			}
 		}	
+	}
+
+	public static void save(List<Data> list) throws Exception {
+		Writer wt=new FileWriter("PhoneDB.txt");
+		BufferedWriter bw=new BufferedWriter(wt);
+		for(int i=0;i<list.size();i++) {
+			bw.write(list.get(i).memo());
+			bw.newLine();
+			bw.flush();
+			System.out.println(list.get(i).memo());
+		}
+		
 	}
 
 }

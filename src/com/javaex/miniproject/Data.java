@@ -37,6 +37,11 @@ public class Data {
 		this.company = company;
 	}
 	
+	
+	public String memo() {
+		return name+","+hp+","+company;
+	}
+
 	public void show()
 	{
 		System.out.printf("1. %s/t/t%s/t/t%s\n",name,hp,company);
