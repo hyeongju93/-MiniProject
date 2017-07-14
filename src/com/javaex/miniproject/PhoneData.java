@@ -62,9 +62,9 @@ public class PhoneData {
 		BufferedWriter bw=new BufferedWriter(wt);
 		for(int i=0;i<list.size();i++) {
 			bw.write(list.get(i).memo());
-			bw.newLine();
-			bw.flush();
-			System.out.println(list.get(i).memo());
+			bw.newLine();	// 되도록이면 이걸로 띄어쓰기
+			bw.flush();	//flush 필요
+			
 		}
 		
 	}
