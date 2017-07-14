@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PhoneData {
 		
-	public static void read(List<Data> list) throws IOException {
+	public static void read(List<Data> list) throws IOException {	//데이터를 읽어오는 과정
 		String str;
 		Reader rd=new FileReader("phoneDB.txt");
 		BufferedReader br=new BufferedReader(rd);
@@ -27,14 +27,14 @@ public class PhoneData {
 		
 	}
 	
-	public static void write(List<Data> list) {
+	public static void write(List<Data> list) {						//리스트안에 있는 데이터를 출력하는 과정
 		for(int i=0;i<list.size();i++) {
 			System.out.printf("%d. %s\t\t%s\t\t%s\n",i+1,list.get(i).getName(),list.get(i).getHp(),list.get(i).getCompany());	
 		}
 		
 	}
 	
-	public static void remove(List<Data> list,int num) {
+	public static void remove(List<Data> list,int num) {				//리스트안의 데이터를 제거하는 과정
 		if((num)>=1 && (num)<=list.size()) {
 			list.remove(num-1);
 		} else
@@ -42,7 +42,7 @@ public class PhoneData {
 		
 	}
 	
-	public static void search(List<Data> list,String str) {
+	public static void search(List<Data> list,String str) {				//리스트안에서 필요로 하는 데이터를 걸러내는 작업
 		int flag=0;
 		for(int i=0;i<list.size();i++) {
 			for(int j=0;j<list.get(i).getName().length();j++) {
@@ -57,7 +57,7 @@ public class PhoneData {
 		}	
 	}
 
-	public static void save(List<Data> list) throws Exception {
+	public static void save(List<Data> list) throws Exception {				//리스트안에 있는 데이터를 메모장에 저장하는 과정
 		Writer wt=new FileWriter("PhoneDB.txt");
 		BufferedWriter bw=new BufferedWriter(wt);
 		for(int i=0;i<list.size();i++) {

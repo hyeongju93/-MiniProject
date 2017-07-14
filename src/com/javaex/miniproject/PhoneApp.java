@@ -30,7 +30,7 @@ public class PhoneApp {
 		int num;
 		int flag=0;
 		
-		PhoneData.read(list);	//메모장을 읽는다.
+		PhoneData.read(list);	//메모장을 읽는다.	// 사실 안에 리스틀 집어넣는게 의미가 없다 잘못생각함
 		
 		while(true) {
 			if(flag==1) {
@@ -46,8 +46,8 @@ public class PhoneApp {
 			System.out.print(">메뉴번호:");
 			try
 			{
-				num=sc.nextInt();
-				sc.nextLine();
+				num=sc.nextInt();		//정수를 입력받는다.
+				sc.nextLine();			//버퍼를 제거하는 용도
 			}
 			catch(Exception e)
 			{
@@ -58,10 +58,10 @@ public class PhoneApp {
 			
 			switch(num) {
 			case 1:
-				PhoneData.write(list);
+				PhoneData.write(list);			//리스트안에 있는 데이터를 출력한다.
 				break;
 				
-			case 2:
+			case 2:							//입력을 받고 그 데이터를 리스트안에 집어넣는다.
 				Data b=new Data();		
 				System.out.println("<2.등록>");
 				System.out.print(">이름: ");
@@ -73,32 +73,41 @@ public class PhoneApp {
 				list.add(b);
 				break;
 				
-			case 3:
+			case 3:								//숫자번호에 따라 리스트안에 데이터를 제거한다.
 				System.out.println("<3.삭제>");
 				System.out.print(">번호: ");
 				num=sc.nextInt();
 				PhoneData.remove(list, num);	
 				break;
 				
-			case 4:
-				System.out.println("<4.검색>");
+			case 4:								//문자를 입력받아 리스트안에 있는 데이터를 검색한다.
+				System.out.println("<4.검색>");	
 				System.out.print(">이름: ");
 				str=sc2.nextLine();
 				PhoneData.search(list, str);
 				break;
 				
-			case 5:
+			case 5:								//종료하는 문구
 				flag=1;
 				break;
 				
-			default:
+			default:							// 다른 숫자가 입력시 다시 입력하게 만드는 문장
 				System.out.println("다시 입력해주세요");
 				break;
 			}		
 			
 		}
-		PhoneData.save(list);
-			
+		PhoneData.save(list);					//최종적으로 나온 리스트를 메모장에 저장을 하는 과정
+		
+		
+		/* 결론
+		 나의 이런 알고리즘은 데이터가 클 경우 아주 비효율 적이다. 데이터가 작을 경우에는 상관이 없지만
+		 데이터가  클 경우 처음부터 다시 써야하기 때문에 보다 효율적인 방법을 찾아야 한다.
+		 
+		 내가 생각할 때는 지울때 실시간으로 메모장에 있는 데이터를 지우고 추가할때 실시간으로 메모장에 있는 데이터를 추가하는
+		 그런과정이 있는 알고리즘이 가장 효율적이라고 생각한다.
+		대충 머리로는 알고 있고 위에 있는 알고리즘을 짤 자신이 있으니 짜보지는 않겠다.
+		 */
 			
 		
 		
